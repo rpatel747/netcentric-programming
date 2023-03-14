@@ -1,0 +1,63 @@
+Runtime for Level 1:
+    Input: 
+        time ./p01 random.txt a
+
+    Output:
+        402497
+
+        real    0m0.234s
+        user    0m0.154s
+        sys     0m0.056s
+
+    
+    Input: 
+        time ./p01 random.txt a b c d
+
+    Output:
+        402497
+        404574
+        403221
+        403394
+
+        real    0m0.657s
+        user    0m0.571s
+        sys     0m0.062s
+
+
+Runtime for Level 2 (System Call):
+    Input:
+        time ./p01 --systemcalls random.txt a
+
+    Output:
+        402497
+
+        real    0m0.231s
+        user    0m0.153s
+        sys     0m0.062s
+
+
+    Input: 
+        time ./p01 --systemcalls random.txt a b c d
+
+    Output:
+        402497
+        404574
+        403221
+        403394
+
+        real    0m0.622s
+        user    0m0.578s
+        sys     0m0.039s
+
+
+Analysis: The difference between the two versions of the programs is not very big, the
+systemcall version is faster by a slight margin. I tested both a single substring and multiple substrings
+and this pattern held for both. This was on a 10mb randomly generated text file. The algorithm for
+both levels is the same so it makes sense that the runtimes are close, and the way the buffers are allocated is
+also the same.
+
+**Important: 
+In the assignment instructions for both Level 1 and Level 2 it states that 
+the entire file can read with a single read and this is how I did both implementations.
+I dyanimcally allocated a buffer that is the size of the file and I perform a single read,
+if there are any problems and the file cannot be read then an error is returned and program exists.
