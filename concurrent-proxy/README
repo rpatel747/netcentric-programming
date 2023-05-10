@@ -1,0 +1,22 @@
+****************
+CS:APP Proxy Lab
+****************
+
+Makefile	- For building proxy
+README		- This file
+
+Proxy source files:
+proxy.{c,h}	- Primary proxy code
+csapp.{c,h}	- Wrapper and helper functions from the CS:APP text
+
+To compile type: make
+
+To clean the directory type: make clean
+
+To run the program in multiprocess version: ./proxy PORT_NUMBER 1
+
+To run the program in mutlithreaded version: ./proxy PORT_NUMBER 2
+
+Both the multi-process and the multi-threaded versions of the program are located within proxy.c.
+
+
